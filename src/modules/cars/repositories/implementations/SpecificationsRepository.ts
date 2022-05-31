@@ -1,8 +1,8 @@
-import { Specification } from "../model/Specification";
-import { ISpecificationsRepository, ICreateSpecificationDTO } from "./ISpecificationsRepository";
+import { Specification } from "../../model/Specification";
+import { ISpecificationsRepository, ICreateSpecificationDTO } from "../ISpecificationsRepository";
 
 
-class SpecificationsRepository implements ISpecificationsRepository{
+class SpecificationsRepository implements ISpecificationsRepository {
     private specifications: Specification[];
 
     constructor() {
@@ -14,7 +14,7 @@ class SpecificationsRepository implements ISpecificationsRepository{
         const specification = new Specification();
 
         Object.assign(specification, {
-            name, 
+            name,
             description,
             created_at: new Date(),
         });
@@ -24,7 +24,7 @@ class SpecificationsRepository implements ISpecificationsRepository{
     }
 
     findByName(name: string): Specification {
-        const specification = this.specifications.find((specification) => specification.name === name );
+        const specification = this.specifications.find((specification) => specification.name === name);
         return specification;
     }
 }
